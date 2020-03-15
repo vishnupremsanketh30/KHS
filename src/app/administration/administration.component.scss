@@ -1,0 +1,33 @@
+.cm{
+    margin-top: 5em;
+}
+
+h1{
+    padding: 0.5em;
+    font-size: 2em;
+}
+
+p,li{
+    font-size: 1.2em;
+}
+
+body{
+
+    background-color: #7395AE;
+}
+
+
+@media only screen and (max-width: 600px){
+    p,li{
+        font-size: medium;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    h1{
+        font-size: 1.5em;
+    }
+    .cm{
+        margin-top: 1em;;
+    }
+  }
+  
