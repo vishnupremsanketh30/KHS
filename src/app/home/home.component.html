@@ -15,7 +15,7 @@
         <ng-template ngbSlide>
             <div >
                 <img [src]="images[0]" style="width: 100%;"  alt="Random first slide">
-                
+
             </div>
         </ng-template>
     </ngb-carousel>
@@ -24,7 +24,7 @@
             <div class="col-lg-6" >
                 <div class="card" style=" border: none;">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center;"><div class="button"><a 
+                        <h5 class="card-title" style="text-align: center;"><div class="button"><a
                                 (click)="toggleShowM()">Mission</a></div></h5>
                         <p class="card-text" *ngIf="isShownM">we aspire to be right mentor to inspire students to
                             gain passion for learing, to provide
@@ -37,7 +37,7 @@
             <div class="col-lg-6" >
                 <div class="card" style=" border: none;">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center;"><div class="button"><a 
+                        <h5 class="card-title" style="text-align: center;"><div class="button"><a
                             (click)="toggleShowV()">Vision</a></div></h5>
                         <p class="card-text" *ngIf="isShownV">We personally focus on individual student, track
                             progress, foster competence, incuclate
@@ -60,7 +60,8 @@
             <div class="col-md-6">
                 <div class="well well-sm">
 
-                    <form class="form-horizontal" method="post" action=”contact-form-handler.php”> 
+                    <form class="form-horizontal"  id="contact-form" action="https://formspree.io/xoqkdrpo"
+                    method="POST">
                         <fieldset>
                             <legend class="text-center header">Contact us</legend>
 
@@ -97,11 +98,13 @@
                                         rows="7"></textarea>
                                 </div>
                             </div>
+                            <input type="hidden" name="_next" value="https://mysite.com/thanks.html"/>
 
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                                 </div>
+
                             </div>
                         </fieldset>
                     </form>
@@ -125,3 +128,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<script>
+    $('#contact-form').submit(function(e) {
+    var fname    = document.getElementById('fname')
+    var email   = document.getElementById('email')
+    var lname = document.getElementById('lname')
+    var phone = document.getElementById('phone')
+    var message = document.getElementById('message')
+
+
+
+      $.ajax({
+        method: 'POST',
+        url: '//formspree.io/name@youremail.com',
+        data: $('#contact-form').serialize(),
+        datatype: 'json'
+      });
+      e.preventDefault();
+      $(this).get(0).reset();
+    });
+
+</script>
